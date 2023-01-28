@@ -8,7 +8,8 @@ function getComputerChoice(){
     }
     return "SCISSORS"
 }
-function playRound(playerSelection, computerSelection){
+function playRound(playerSelection){
+    computerSelection = getComputerChoice();
     if (playerSelection == computerSelection){
         return "Draw";
     }
@@ -31,17 +32,11 @@ function playRound(playerSelection, computerSelection){
         return "You Win Scissors beat Paper"
     }
 }
-function getPlayerChoice(){
-    let playerSelection = prompt("Please enter your selection");
-    return (playerSelection.toUpperCase());
-}
 
-function game(){
-    for (let i = 0; i < 5; i++) {
-        console.log(playerSelection = getPlayerChoice());
-        console.log(computerSelection = getComputerChoice());
-        alert(playRound(playerSelection,computerSelection));
-     }
-}
-game();
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => button.addEventListener('click', function(event){
+    playerChoice = this.classList.value;
+    console.log(playRound(playerChoice));
+
+}));
 
